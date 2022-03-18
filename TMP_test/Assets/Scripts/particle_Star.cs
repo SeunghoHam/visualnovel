@@ -6,21 +6,30 @@ using UnityEngine.UI;
 public class particle_Star : MonoBehaviour
 {
     Vector2 direction;
-    public float moveSpeed = 0.05f;
-    public float minSize = 2f;
-    public float maxSize = 4f;
+    //public float moveSpeed = 0.05f;
+    public float moveSpeed = 0.1f;
+    //public float minSize = 2f;
+    public float minSize = 0.1f;
+    //public float maxSize = 4f;
+    public float maxSize = 0.3f;
+
     public float sizeSpeed = 1f;
 
-    public float minDir;
-    public float maxDir;
+    private float minDir;
+    private float maxDir;
 
     SpriteRenderer img_touchEffect;
     public Color[] colors;
-    public float colorSpeed = 1f;
+    //public float colorSpeed = 1f;
+    public float colorSpeed = 5f;
 
 	private void Awake()
 	{
         img_touchEffect = GetComponent<SpriteRenderer>();
+
+        colors[0] = new Color(1, 0.05098039f, 0.2807088f, 0.8f);
+        colors[1] = new Color(1, 0, 0.7057633f, 0.8f);
+        colors[2] = new Color(1, 0.5406088f, 0, 0.8f);
     }
 	// Start is called before the first frame update
 	void Start()
@@ -31,7 +40,6 @@ public class particle_Star : MonoBehaviour
         img_touchEffect.color = colors[Random.Range(0, colors.Length)];
     }
 
-    // Update is called once per frame
     void Update()
     {
 
