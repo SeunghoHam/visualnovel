@@ -30,6 +30,7 @@ public class Dialogue : MonoBehaviour
 	public int touchCount;
 	public bool canTouch;
 
+	public AudioSource se_setting; // 세팅에서 사용하는 AudioSource ex)
 	public AudioSource se; // SE 오디오소스 플레이어
 	public AudioClip se1 ,se2; // 교체하는 오디오클립
 
@@ -153,7 +154,7 @@ public class Dialogue : MonoBehaviour
 		{
 			if (Input.GetKeyDown(KeyCode.Q))
 			{
-				Debug.Log("배경 바꾸기!");
+				Debug.Log("se 오디오 플레이");
 				//StartCoroutine(CRT_ChangeBG(img_bgList[0], img_bgList[1]));
 				se.Play();
 			}
@@ -392,7 +393,7 @@ public class Dialogue : MonoBehaviour
 
 	public void playsound_SE()
 	{
-		se.Play();
+		se_setting.Play();
 	}
 	void Ending()
 	{

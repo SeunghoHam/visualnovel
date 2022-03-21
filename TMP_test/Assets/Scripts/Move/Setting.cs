@@ -18,8 +18,8 @@ public class Setting : MonoBehaviour
     {
         slider_BGM.value = 0f;
         slider_SE.value = 0f;
-        mixer.SetFloat("BGM", 0f);
-        mixer.SetFloat("SE", 0f);
+        mixer.SetFloat("BGM", 0f); // AudioMixer 에서 BGM 이라는 이름을 가지고 있는 믹서르 가져온다.
+        mixer.SetFloat("SE", 0f); //
         dialogue = GetComponent<Dialogue>();
 
         isChange = false;
@@ -39,6 +39,8 @@ public class Setting : MonoBehaviour
 
          isChange = true;
 	}
+
+    
 
 	private void Update()
 	{

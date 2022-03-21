@@ -28,6 +28,7 @@ public class MIYUNSI : MonoBehaviour
     public Button btn_Option; //可记
     public Button btn_OptionClose; // 可记掺扁
 
+    [Header("aboutAudioSource")]
     public AudioSource se;
     public AudioClip se1, se2;
 
