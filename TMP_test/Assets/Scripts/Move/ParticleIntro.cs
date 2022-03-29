@@ -34,7 +34,7 @@ public class ParticleIntro : MonoBehaviour
 
 		particle_Twinkle.gameObject.SetActive(true);
 		particle_Spawn.gameObject.SetActive(true);
-		img_Black.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+		img_Black.GetComponent<Image>().color = new Color(0, 0, 0, 0.6f);
 		Intro_Back.transform.localPosition = new Vector3(-1080f, 0, 0);
 		Intro_Front.transform.localPosition = new Vector3(1080f, 0, 0);
 		particle_Twinkle.Play();
@@ -93,7 +93,6 @@ public class ParticleIntro : MonoBehaviour
 	}
 	IEnumerator CRT_Intro()
 	{
-		//particle_Spawn.Play();
 		StartCoroutine(CRT_ChangeColor(img_Black.GetComponent<Image>(), 0)); // 흰색 배경 되기
 		yield return new WaitForSeconds(0.8f);
 		StartCoroutine(CRT_ChangeColor(img_Black.GetComponent<Image>(), 1)); // 검정색 배경 되기

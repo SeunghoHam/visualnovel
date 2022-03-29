@@ -30,10 +30,11 @@ public class Dialogue : MonoBehaviour
 	public int touchCount;
 	public bool canTouch;
 
-	public AudioSource se_setting; // 세팅에서 사용하는 AudioSource ex)
+	public AudioSource se_setting; // 세팅에서 사용하는 AudioSource ex) 세팅 창 열렸을 때 미리듣기 사운드용
 	public AudioSource se; // SE 오디오소스 플레이어
 	public AudioClip se1 ,se2; // 교체하는 오디오클립
 
+	public AudioSource as_bgm;
 
 
 	public bool isKind; // 선택지 1
@@ -132,6 +133,8 @@ public class Dialogue : MonoBehaviour
 		StartCoroutine(CRT_StartChat());
 
 		//SoundManager.Instance.PlaySound(bgm, Setting.Instance.volume_bgm, false);
+
+		as_bgm.Play();
 	}
 	IEnumerator CRT_StartChat()
 	{
@@ -373,6 +376,7 @@ public class Dialogue : MonoBehaviour
 
 	void btnClick_ReGame()
 	{
+		as_bgm.Stop();
 		Init();
 	}
 	void btnClick_Exit()

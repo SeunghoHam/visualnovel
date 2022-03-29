@@ -29,8 +29,10 @@ public class MIYUNSI : MonoBehaviour
     public Button btn_OptionClose; // 옵션끄기
 
     [Header("aboutAudioSource")]
-    public AudioSource se;
-    public AudioClip se1, se2;
+    public AudioSource as_se_setting; // // 세팅에서 사용하는 AudioSource ex) 세팅 창 열렸을 때 미리듣기 사운드용
+    public AudioSource as_se;// SE 오디오소스 플레이어
+    public AudioClip se1, se2;// 교체하는 오디오클립
+    public AudioSource as_bgm;
 
     int touchCount;
     bool canTouch;
@@ -81,7 +83,7 @@ public class MIYUNSI : MonoBehaviour
                 /* 기타 기능 사용법
                  * 배경 변경 : CRT- CRT_ChangeBG(이전, 바꿀거);
                  * 캐릭터 스프라이트 변경 : changeCharacteSprite(바꿀 배열 수);
-                 * 부딪히는 효과(화면떨림) : ViberateForTime(지속시간);
+                 * 부딪히는 효과(화면떨림) : ViberateForTime(지속시간); // Cam_UI 에서 SolidColor 색이 보일 수 있음
                  * 
                  */
                 canTouch = false;
@@ -202,6 +204,8 @@ public class MIYUNSI : MonoBehaviour
         StartCoroutine(CRT_StartChat());
 
         typeDelay = new WaitForSeconds(interval);
+
+        as_bgm.Play();
     }
     IEnumerator CRT_StartChat()
     {
@@ -278,6 +282,7 @@ public class MIYUNSI : MonoBehaviour
     }
     void btnClick_ReGame()
     {
+        as_bgm.Stop();
         Init();
     }
     void btnClick_Exit()
@@ -299,7 +304,7 @@ public class MIYUNSI : MonoBehaviour
 
     public void playsound_SE()
     {
-        se.Play();
+        as_se.Play();
     }
     void Ending()
     {
